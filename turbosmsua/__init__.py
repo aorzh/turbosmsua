@@ -48,7 +48,7 @@ class Turbosms:
 
         send_status = send_result.pop(0).encode('utf8')
 
-        to_return = {"status": send_status}
+        to_return = {"status": send_status.deconde('utf8')}
         for i, sms_id in enumerate(send_result):
             to_return[destinations[i]] = sms_id
 
