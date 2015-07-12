@@ -8,7 +8,7 @@ class Turbosms:
         self.client = Client('http://turbosms.in.ua/api/wsdl.html')
         auth_result = self.client.service.Auth(login, password).encode('utf8')
 
-        if auth_result != "Вы успешно авторизировались":
+        if auth_result != "Вы успешно авторизировались".encode('utf8'):
             raise ValueError("Auth error: %s" % auth_result.decode('utf8'))
 
     def balance(self):
