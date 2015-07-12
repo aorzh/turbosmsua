@@ -3,7 +3,7 @@
 
 Для установки пакета выполните:
 ```sh
-$ pip install git+git://github.com/ukrainian-solutions/turbosmsua.git
+$ pip install git+git://github.com/Krokop/turbosmsua.git
 ```
 
 Все. Теперь в системе доступен пакет turbosmsua.
