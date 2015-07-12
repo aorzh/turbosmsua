@@ -10,7 +10,7 @@ class Turbosms:
 
         if auth_result != "Вы успешно авторизировались".encode('utf8'):
             raise ValueError("Auth error: %s" % auth_result.decode('utf8'))
-
+`
     def balance(self):
         balance_result = self.client.service.GetCreditBalance().encode('utf8')
 
@@ -41,10 +41,12 @@ class Turbosms:
 
         destinations_formated = ",".join(map(format_destination, destinations))
 
+        # check if we need to decode
+        text = text.decode() if type(text) == bytes else text
         if not wappush:
-            send_result = self.client.service.SendSMS(sender, destinations_formated, text.decode('utf8')).ResultArray
+            send_result = self.client.service.SendSMS(sender, destinations_formated, text).ResultArray
         else:
-            send_result = self.client.service.SendSMS(sender, destinations_formated, text.decode('utf8'), wappush).ResultArray
+            send_result = self.client.service.SendSMS(sender, destinations_formated, text, wappush).ResultArray
 
         send_status = send_result.pop(0).encode('utf8')
 
