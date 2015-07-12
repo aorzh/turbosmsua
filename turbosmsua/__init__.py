@@ -9,7 +9,7 @@ class Turbosms:
         auth_result = self.client.service.Auth(login, password).encode('utf8')
 
         if auth_result != "Вы успешно авторизировались":
-            raise ValueError("Auth error: %s" % auth_result.deconde('utf8'))
+            raise ValueError("Auth error: %s" % auth_result.decode('utf8'))
 
     def balance(self):
         balance_result = self.client.service.GetCreditBalance().encode('utf8')
@@ -17,7 +17,7 @@ class Turbosms:
         try:
             balance = float(balance_result)
         except ValueError:
-            raise ValueError("Balance error: %s" % balance_result.deconde('utf8'))
+            raise ValueError("Balance error: %s" % balance_result.decode('utf8'))
 
         return balance
 
@@ -48,7 +48,7 @@ class Turbosms:
 
         send_status = send_result.pop(0).encode('utf8')
 
-        to_return = {"status": send_status.deconde('utf8')}
+        to_return = {"status": send_status.decode('utf8')}
         for i, sms_id in enumerate(send_result):
             to_return[destinations[i]] = sms_id
 
