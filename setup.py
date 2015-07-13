@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-INSTALL_REQUIRES = [
-    "suds-jurko >= 0.6",
-]
-
 setup(
   name = 'turbosmsua',
   packages = ['turbosmsua'],
@@ -16,5 +12,5 @@ setup(
   download_url = 'https://github.com/Krokop/turbosmsua/tarball/0.1',
   keywords = ['turbosmsua', 'sms ua'],
   classifiers = [],
-  install_requires = INSTALL_REQUIRES,
+  install_requires = ["suds-jurko >= 0.6",],
 )
