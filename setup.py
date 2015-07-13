@@ -14,3 +14,18 @@ setup(
 
     install_requires = INSTALL_REQUIRES,
 )
+
+from distutils.core import setup
+
+setup(
+  name = 'turbosmsua',
+  packages = ['turbosmsua3'], # this must be the same as the name above
+  version = '0.1',
+  description = 'Client for https://turbosms.ua',
+  author = 'Serbokryl Oleg',
+  author_email = 'chezar1995@gmail.com',
+  url = 'https://github.com/Krokop/turbosmsua3', # use the URL to the github repo
+  download_url = 'https://github.com/peterldowns/mypackage/tarball/0.1', # I'll explain this in a second
+  keywords = ['testing', 'logging', 'example'], # arbitrary keywords
+  classifiers = [],
+)
