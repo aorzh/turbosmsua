@@ -12,5 +12,5 @@ setup(
   download_url = 'https://github.com/Krokop/turbosmsua/tarball/0.2',
   keywords = ['turbosmsua', 'turbosms', 'sms ua'],
   classifiers = [],
-  # install_requires = ["suds-jurko >= 0.6",],
+  install_requires = ["suds-jurko >= 0.6",],
 )
