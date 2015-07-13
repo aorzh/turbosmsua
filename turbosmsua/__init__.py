@@ -10,7 +10,7 @@ class Turbosms:
 
         if auth_result != "Вы успешно авторизировались".encode('utf8'):
             raise ValueError("Auth error: %s" % auth_result.decode('utf8'))
-`
+
     def balance(self):
         balance_result = self.client.service.GetCreditBalance().encode('utf8')
 
