@@ -3,7 +3,7 @@
 
 Для установки пакета выполните:
 ```sh
-$ pip install git+git://github.com/Krokop/turbosmsua.git
+$ pip install turbosmsua
 ```
 
 Все. Теперь в системе доступен пакет turbosmsua.
