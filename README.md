@@ -3,7 +3,7 @@
 
 Для установки пакета выполните:
 ```sh
-$ pip install turbosmsua
+$ pip install turbosmsua-python3
 ```
 
 Все. Теперь в системе доступен пакет turbosmsua.
