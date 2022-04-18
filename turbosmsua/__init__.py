@@ -3,21 +3,20 @@ from suds.client import Client
 
 
 class Turbosms:
-
     def __init__(self, login, password):
-        self.client = Client('http://turbosms.in.ua/api/wsdl.html')
-        auth_result = self.client.service.Auth(login, password).encode('utf8')
+        self.client = Client("http://turbosms.in.ua/api/wsdl.html")
+        auth_result = self.client.service.Auth(login, password).encode("utf8")
 
-        if auth_result != "Вы успешно авторизировались".encode('utf8'):
-            raise ValueError("Auth error: %s" % auth_result.decode('utf8'))
+        if auth_result != "Вы успешно авторизировались".encode("utf8"):
+            raise ValueError("Auth error: %s" % auth_result.decode("utf8"))
 
     def balance(self):
-        balance_result = self.client.service.GetCreditBalance().encode('utf8')
+        balance_result = self.client.service.GetCreditBalance().encode("utf8")
 
         try:
             balance = float(balance_result)
         except ValueError:
-            raise ValueError("Balance error: %s" % balance_result.decode('utf8'))
+            raise ValueError("Balance error: %s" % balance_result.decode("utf8"))
 
         return balance
 
@@ -44,13 +43,17 @@ class Turbosms:
         # check if we need to decode
         text = text.decode() if type(text) == bytes else text
         if not wappush:
-            send_result = self.client.service.SendSMS(sender, destinations_formated, text).ResultArray
+            send_result = self.client.service.SendSMS(
+                sender, destinations_formated, text
+            ).ResultArray
         else:
-            send_result = self.client.service.SendSMS(sender, destinations_formated, text, wappush).ResultArray
+            send_result = self.client.service.SendSMS(
+                sender, destinations_formated, text, wappush
+            ).ResultArray
 
-        send_status = send_result.pop(0).encode('utf8')
+        send_status = send_result.pop(0).encode("utf8")
 
-        to_return = {"status": send_status.decode('utf8')}
+        to_return = {"status": send_status.decode("utf8")}
         for i, sms_id in enumerate(send_result):
             to_return[destinations[i]] = sms_id
 
@@ -58,4 +61,4 @@ class Turbosms:
 
     def message_status(self, message_id):
         status = self.client.service.GetMessageStatus(message_id)
-        return status.encode('utf8')
+        return status.encode("utf8")

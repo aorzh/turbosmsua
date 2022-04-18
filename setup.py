@@ -2,15 +2,16 @@
 from setuptools import setup
 
 setup(
-  name = 'turbosmsua',
-  packages = ['turbosmsua'],
-  version = '0.3',
-  description = 'Client for https://turbosms.ua',
-  author = 'Serbokryl Oleg',
-  author_email = 'chezar1995@gmail.com',
-  url = 'https://github.com/Krokop/turbosmsua',
-  download_url = 'https://github.com/Krokop/turbosmsua/tarball/0.3',
-  keywords = ['turbosmsua', 'turbosms', 'sms ua'],
-  classifiers = [],
-  install_requires=['suds',],
+    name="turbosmsua-python3",
+    packages=["turbosmsua-python3"],
+    version="0.4",
+    description="Client for https://turbosms.ua",
+    author="Oleksii Orzeshkovskyi",
+    author_email="al.orzh@gmail.com",
+    url="https://github.com/aorzh/turbosmsua",
+    keywords=["turbosmsua", "turbosms", "sms ua"],
+    classifiers=[],
+    install_requires=[
+        "suds",
+    ],
 )
